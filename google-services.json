@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "236918273080",
+    "project_id": "meal-recipes-6eee0",
+    "storage_bucket": "meal-recipes-6eee0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236918273080:android:2ae75a00392362b9aca2cd",
+        "android_client_info": {
+          "package_name": "com.example.meal_recipes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAisbnvfAYbL5dSc-sn4QuHecZZdv-vWeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
