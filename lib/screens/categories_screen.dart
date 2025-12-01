@@ -3,6 +3,7 @@ import '../models/category.dart';
 import '../services/api_service.dart';
 import '../widgets/category_card.dart';
 import 'meal_detail_screen.dart';
+import 'favorites_screen.dart';
 
 class CategoriesScreen extends StatefulWidget {
   @override
@@ -36,6 +37,26 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     });
   }
 
+  Future<void> _openRandomMeal() async {
+    final randomMeal = await ApiService.getRandomMeal();
+    if (!mounted) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => MealDetailScreen(mealId: randomMeal.idMeal),
+      ),
+    );
+  }
+
+  void _openFavorites() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const FavoritesScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,16 +64,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         title: Text('Категории на рецепти'),
         actions: [
           IconButton(
-            icon: Icon(Icons.casino),
-            onPressed: () async {
-              final randomMeal = await ApiService.getRandomMeal();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => MealDetailScreen(mealId: randomMeal.idMeal),
-                ),
-              );
-            },
+            tooltip: 'Рандом рецепт',
+            icon: const Icon(Icons.casino),
+            onPressed: _openRandomMeal,
+          ),
+          IconButton(
+            tooltip: 'Омилени рецепти',
+            icon: const Icon(Icons.favorite),
+            onPressed: _openFavorites,
           ),
         ],
       ),
