@@ -4,11 +4,11 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 class NotificationService {
   static final FirebaseMessaging _messaging = FirebaseMessaging.instance;
   static final FlutterLocalNotificationsPlugin _localNotifications =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   static Future<void> initialize() async {
     const AndroidInitializationSettings androidInit =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     const DarwinInitializationSettings iosInit = DarwinInitializationSettings();
     const InitializationSettings initSettings = InitializationSettings(
       android: androidInit,
@@ -22,7 +22,6 @@ class NotificationService {
       badge: true,
       sound: true,
     );
-    print('Notification permission: ${settings.authorizationStatus}');
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       final notification = message.notification;
@@ -36,7 +35,8 @@ class NotificationService {
   }
 
   static Future<void> _showNotification(String title, String body) async {
-    const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+    const AndroidNotificationDetails androidDetails =
+        AndroidNotificationDetails(
       'default_channel',
       'Default',
       channelDescription: 'Default notifications',

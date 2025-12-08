@@ -16,8 +16,7 @@ Future<void> main() async {
           storageBucket: "meal-recipes-6eee0.firebasestorage.app",
           messagingSenderId: "236918273080",
           appId: "1:236918273080:web:5cfdb860b3595917aca2cd",
-          measurementId: "G-51N6T4KZCC"
-      ),
+          measurementId: "G-51N6T4KZCC"),
     );
   } else {
     await Firebase.initializeApp();
