@@ -37,8 +37,6 @@ class _FavoriteIconState extends State<FavoriteIcon> {
   }
 
   Future<void> _toggleFavorite() async {
-    print('Favorite icon tapped for mealId=${widget.mealId}');
-
     if (_loading) return;
     setState(() => _loading = true);
 
